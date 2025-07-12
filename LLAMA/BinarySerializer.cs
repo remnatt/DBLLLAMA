@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-public static class BinarySerializer
+public static class DBData
 {
     // VLong encoding (signed)
     public static byte[] SerializeVLong(long num)
