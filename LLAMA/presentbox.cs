@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using CommandCore.cs;
 using cmd;
-using gmsir; // not ready yet im still finishing the GetMissionSetInfoResponse function
+using gmsir;
 
 namespace PresentBox
 {
