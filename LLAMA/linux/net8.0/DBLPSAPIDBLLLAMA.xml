@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DBLPSAPIDBLLLAMA</name>
+    </assembly>
+    <members>
+        <member name="P:PersistentApiClient.LogJsonContext.Boolean">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.ConnectResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.DisconnectResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.ErrorResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.LogData">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.LogEntry">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.SendDataResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.SessionInfo">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.StatusResponse">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.DictionaryStringObject">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.ListLogEntry">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.Int32">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.Object">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:PersistentApiClient.LogJsonContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:PersistentApiClient.LogJsonContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:PersistentApiClient.LogJsonContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:PersistentApiClient.LogJsonContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Request.AssignParams(System.Object[])">
+            <summary>
+            Assigns parameters to the request object
+            </summary>
+            <param name="args">Parameters to assign</param>
+        </member>
+        <member name="M:Request.SerializeContents">
+            <summary>
+            Serializes the request contents to a byte array
+            </summary>
+            <returns>Serialized byte array</returns>
+        </member>
+        <member name="M:Request.UnserializeContents(System.Byte[])">
+            <summary>
+            Deserializes the request contents from a byte array
+            </summary>
+            <param name="data">Byte array to deserialize from</param>
+        </member>
+    </members>
+</doc>

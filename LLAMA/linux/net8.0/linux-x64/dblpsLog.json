@@ -1,0 +1,99 @@
+{
+  "SessionInfo": {
+    "SessionId": "session_1752820940",
+    "StartTime": "2025-07-18T06:42:20.3857969\u002B00:00",
+    "EndTime": "2025-07-18T06:48:16.5623804\u002B00:00",
+    "TotalEvents": 9
+  },
+  "Events": [
+    {
+      "Timestamp": "2025-07-18T06:42:20.3951168\u002B00:00",
+      "SessionId": "session_1752820940",
+      "EventType": "CLIENT_INIT",
+      "Level": "INFO",
+      "Message": "DBL Client initialized",
+      "Data": {
+        "apihost": "ul2ahv9ohheiyu3t.dblgnds.channel.or.jp",
+        "apiport": 34210,
+        "apiversion": 275
+      }
+    },
+    {
+      "Timestamp": "2025-07-18T06:44:05.6676133\u002B00:00",
+      "SessionId": "session_1752820940",
+      "EventType": "CONNECT_START",
+      "Level": "INFO",
+      "Message": "Starting connection to ul2ahv9ohheiyu3t.dblgnds.channel.or.jp:34210",
+      "Data": null
+    },
+    {
+      "Timestamp": "2025-07-18T06:44:05.6676386\u002B00:00",
+      "SessionId": "session_1752820940",
+      "EventType": "DNS_LOOKUP",
+      "Level": "INFO",
+      "Message": "Resolving hostname: ul2ahv9ohheiyu3t.dblgnds.channel.or.jp",
+      "Data": null
+    },
+    {
+      "Timestamp": "2025-07-18T06:44:05.7297877\u002B00:00",
+      "SessionId": "session_1752820940",
+      "EventType": "DNS_RESOLVED",
+      "Level": "INFO",
+      "Message": "Hostname resolved to: 35.193.120.131",
+      "Data": null
+    },
+    {
+      "Timestamp": "2025-07-18T06:44:05.9617541\u002B00:00",
+      "SessionId": "session_1752820940",
+      "EventType": "CONNECTION_SUCCESS",
+      "Level": "INFO",
+      "Message": "Successfully connected to ul2ahv9ohheiyu3t.dblgnds.channel.or.jp:34210",
+      "Data": {
+        "host": "ul2ahv9ohheiyu3t.dblgnds.channel.or.jp",
+        "port": 34210,
+        "success": true,
+        "error": null
+      }
+    },
+    {
+      "Timestamp": "2025-07-18T06:44:36.3496915\u002B00:00",
+      "SessionId": "session_1752820940",
+      "EventType": "NETWORK_ACTIVITY",
+      "Level": "INFO",
+      "Message": "PACKET_SENT",
+      "Data": {
+        "sequence_number": 1,
+        "packet_size": 4,
+        "timestamp": "2025-07-18T06:44:36.3495938\u002B00:00"
+      }
+    },
+    {
+      "Timestamp": "2025-07-18T06:46:25.0746103\u002B00:00",
+      "SessionId": "session_1752820940",
+      "EventType": "NETWORK_ACTIVITY",
+      "Level": "INFO",
+      "Message": "PACKET_SENT",
+      "Data": {
+        "sequence_number": 2,
+        "packet_size": 3,
+        "timestamp": "2025-07-18T06:46:25.0745991\u002B00:00"
+      }
+    },
+    {
+      "Timestamp": "2025-07-18T06:48:16.5611621\u002B00:00",
+      "SessionId": "session_1752820940",
+      "EventType": "LISTEN_CANCELLED",
+      "Level": "INFO",
+      "Message": "Listening task was cancelled",
+      "Data": null
+    },
+    {
+      "Timestamp": "2025-07-18T06:48:16.5615465\u002B00:00",
+      "SessionId": "session_1752820940",
+      "EventType": "DISCONNECT",
+      "Level": "INFO",
+      "Message": "Disconnected from server",
+      "Data": null
+    }
+  ]
+}
