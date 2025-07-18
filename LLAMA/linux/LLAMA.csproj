@@ -1,0 +1,138 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>DBLPSAPIDBLLLAMA</AssemblyName>
+    <RootNamespace>DBLPS API</RootNamespace>
+    <OutputType>Exe</OutputType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>PersistentApiClient</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Mindset | ZRV </Authors>
+    <Company>ZRV</Company>
+    <Product>Persistent API Client Library</Product>
+    <Description>A persistent TCP/SSL client library with API capabilities for DBLPS</Description>
+    <Copyright>Copyright © 2025</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/remnatt/DBLLLAMA</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/remnatt/DBLLLAMA</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>tcp;ssl;client;api;logging;persistent</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <!-- Target only Windows and Linux -->
+  <PropertyGroup>
+    <RuntimeIdentifiers>win-x64;win-x86;win-arm64;linux-x64;linux-arm64</RuntimeIdentifiers>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <PublishTrimmed>true</PublishTrimmed>
+    <TrimMode>link</TrimMode>
+  </PropertyGroup>
+
+  <!-- Platform-specific configurations -->
+  <PropertyGroup Condition="'$(RuntimeIdentifier)'=='win-x64' OR '$(RuntimeIdentifier)'=='win-x86' OR '$(RuntimeIdentifier)'=='win-arm64'">
+    <DefineConstants>$(DefineConstants);WINDOWS</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(RuntimeIdentifier)'=='linux-x64' OR '$(RuntimeIdentifier)'=='linux-arm64'">
+    <DefineConstants>$(DefineConstants);LINUX</DefineConstants>
+  </PropertyGroup>
+
+  <!-- Package References -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="System.Text.Json" Version="8.0.0" />
+    <PackageReference Include="System.Net.Security" Version="4.3.2" />
+    <PackageReference Include="System.Net.Sockets" Version="4.3.0" />
+  </ItemGroup>
+
+  <!-- Content Files -->
+  <ItemGroup>
+    <Content Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <!-- Exclude from compilation if not on supported platforms -->
+  <ItemGroup Condition="!$([MSBuild]::IsOSPlatform('Windows')) AND !$([MSBuild]::IsOSPlatform('Linux'))">
+    <Compile Remove="**/*.cs" />
+  </ItemGroup>
+
+  <!-- Build configurations for different platforms -->
+  <Target Name="PublishWindows" Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+    <Message Text="Building for Windows platforms" Importance="high" />
+  </Target>
+
+  <Target Name="PublishLinux" Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+    <Message Text="Building for Linux platforms" Importance="high" />
+  </Target>
+
+  <!-- Post-build events -->
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Message Text="Build completed for $(TargetFramework) on $(RuntimeIdentifier)" Importance="high" />
+  </Target>
+
+  <!-- Custom build targets -->
+  <Target Name="BuildAllPlatforms">
+    <MSBuild Projects="$(MSBuildProjectFile)" Targets="Build" Properties="RuntimeIdentifier=win-x64" />
+    <MSBuild Projects="$(MSBuildProjectFile)" Targets="Build" Properties="RuntimeIdentifier=win-x86" />
+    <MSBuild Projects="$(MSBuildProjectFile)" Targets="Build" Properties="RuntimeIdentifier=win-arm64" />
+    <MSBuild Projects="$(MSBuildProjectFile)" Targets="Build" Properties="RuntimeIdentifier=linux-x64" />
+    <MSBuild Projects="$(MSBuildProjectFile)" Targets="Build" Properties="RuntimeIdentifier=linux-arm64" />
+  </Target>
+
+  <!-- Custom publish targets for executables -->
+  <Target Name="PublishAllPlatforms">
+    <MSBuild Projects="$(MSBuildProjectFile)" Targets="Publish" Properties="RuntimeIdentifier=win-x64;PublishDir=publish/win-x64/" />
+    <MSBuild Projects="$(MSBuildProjectFile)" Targets="Publish" Properties="RuntimeIdentifier=win-x86;PublishDir=publish/win-x86/" />
+    <MSBuild Projects="$(MSBuildProjectFile)" Targets="Publish" Properties="RuntimeIdentifier=win-arm64;PublishDir=publish/win-arm64/" />
+    <MSBuild Projects="$(MSBuildProjectFile)" Targets="Publish" Properties="RuntimeIdentifier=linux-x64;PublishDir=publish/linux-x64/" />
+    <MSBuild Projects="$(MSBuildProjectFile)" Targets="Publish" Properties="RuntimeIdentifier=linux-arm64;PublishDir=publish/linux-arm64/" />
+  </Target>
+
+  <!-- Packaging configuration -->
+  <PropertyGroup>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <!-- Analyzer References -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Documentation -->
+  <PropertyGroup>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+  <!-- Assembly Information -->
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+</Project>
